@@ -1,4 +1,4 @@
-class TodosController < ApplicationController
+class API::V1::TodosController < ApplicationController
   before_action :set_todo, only: [:show, :update, :destroy]
 
   # GET /todos
