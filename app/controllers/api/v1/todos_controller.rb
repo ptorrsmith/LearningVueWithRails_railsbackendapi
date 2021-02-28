@@ -5,6 +5,13 @@ class Api::V1::TodosController < ApplicationController
   def index
     @todos = Todo.all
 
+    limit = params[:_limit]
+
+    if limit.present?
+      limit = limit.to_i
+      @todos = @todos.last(limit)
+    end
+
     render json: @todos
   end
 
